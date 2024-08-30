@@ -1,12 +1,13 @@
 package com.example.springbootsecurity;
 
+import jakarta.servlet.http.HttpServletRequest;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 public class HomeController {
     @GetMapping("/")
-    String greet(){
-        return "Hi I am homepage";
+    String greet(HttpServletRequest req){
+        return "Hi I am homepage" + req.getSession().getId();
     }
 }
